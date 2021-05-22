@@ -2,14 +2,14 @@ export default function Content() {
   return (
     <div className="container">
       <main className="flow">
-        <h1>Welcome to SpaceCubez</h1>
+        <h1>HERE BE DRAGONS!</h1>
         <p>
-          I'm baby gluten-free knausgaard narwhal, flannel readymade mumblecore
-          sustainable YOLO shaman street art heirloom DIY. Chia church-key
-          vaporware shoreditch helvetica disrupt tumeric. Roof party polaroid
-          synth helvetica, neutra chartreuse tofu. Offal portland chia synth
-          fam, hashtag keffiyeh aesthetic blog literally tumblr skateboard
-          kickstarter distillery shabby chic. YOLO vegan wayfarers asymmetrical.
+          "I kill where I wish and none dare resist. I laid low the warriors of
+          old and their like is not in the world today. Then I was but young and
+          tender. Now I am old and strong, strong strong."
+          <br />
+          <br />
+          Smaug J.R.R. Tolkien, Inside Information, The Hobbit
         </p>
       </main>
     </div>
