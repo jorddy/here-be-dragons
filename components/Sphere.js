@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
+import { useSpring, animated } from "@react-spring/three";
 
 export default function Box(props) {
   const mesh = useRef();
@@ -12,20 +13,22 @@ export default function Box(props) {
     mesh.current.rotation.z += 0.01;
   });
 
+  const springs = useSpring({
+    scale: clicked ? [2, 2, 2] : [1, 1, 1],
+    color: hovered ? props.color : "lightgrey",
+  });
+
   return (
-    <mesh
+    <animated.mesh
       {...props}
       ref={mesh}
       onClick={() => setClicked(!clicked)}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
-      scale={clicked ? [2, 2, 2] : [1, 1, 1]}
+      scale={springs.scale}
     >
       <octahedronGeometry attach="geometry" args={[1, 0]} />
-      <meshStandardMaterial
-        attach="material"
-        color={hovered ? props.color : "lightgrey"}
-      />
-    </mesh>
+      <animated.meshStandardMaterial attach="material" color={springs.color} />
+    </animated.mesh>
   );
 }

@@ -31,8 +31,10 @@ main {
   margin: 1rem;
 }
 
-main p {
+main p,
+main h1 {
   max-width: 60ch;
+  pointer-events: all;
 }
 
 .flow > * + * {

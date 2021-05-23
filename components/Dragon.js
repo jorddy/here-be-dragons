@@ -6,20 +6,34 @@ source: https://sketchfab.com/models/fb0053a2e59b43868e934c239bf4eb36
 title: Black Dragon with Idle Animation
 */
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
 export default function Model(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/dragon/scene.gltf");
   const { actions } = useAnimations(animations, group);
+
+  useEffect(() => {
+    actions.Scene.play();
+    setTimeout(() => {
+      group.current.scale.x = 1;
+      group.current.scale.y = 1;
+      group.current.scale.z = 1;
+      group.current.rotation.x = -Math.PI / 2;
+      group.current.rotation.y = -Math.PI / 2;
+      group.current.rotation.z = -Math.PI / 2;
+      console.log(actions.Scene);
+    }, 1);
+  }, []);
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group name="RootNode">
             <group
-              position={[4018.55, 4666.06, 3759.08]}
+              position={[218.55, 266.06, 179.08]}
               rotation={[-2.59, 0.26, 0.39]}
               scale={[0.2, 0.2, 0.2]}
             >
